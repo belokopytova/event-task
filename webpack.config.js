@@ -1,33 +1,33 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js", // точка входа
+  entry: "./src/index.js", 
   output: {
-    filename: "bundle.js", // собранный JS
+    filename: "bundle.js", 
     path: path.resolve(__dirname, "dist"),
-    clean: true, // чистит dist перед сборкой
+    clean: true,
   },
-  mode: "development", // можно поменять на 'production'
+  mode: "development", 
   devServer: {
-    static: "./dist", // откуда запускать сервер
+    static: "./dist", 
     port: 3000,
-    open: true, // открывает браузер
-    hot: true, // hot reload
+    open: true, 
+    hot: true, 
   },
   module: {
     rules: [
       {
-        test: /\.js$/, // все JS файлы
+        test: /\.js$/, 
         exclude: /node_modules/,
-        use: "babel-loader", // обработка через Babel
+        use: "babel-loader", 
       },
       {
-        test: /\.css$/, // все CSS файлы
-        use: ["style-loader", "css-loader"], // сначала css-loader, потом style-loader
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"], 
       },
     ],
   },
   resolve: {
-    extensions: [".js"], // расширения для импорта
+    extensions: [".js"], 
   },
 };
