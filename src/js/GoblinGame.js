@@ -4,6 +4,8 @@ export default class GoblinGame {
   constructor(element) {
     this.element = element;
     this.cells = [];
+    this.misses = 0;
+    this.isHit = false;
     this.goblinInterval = null;
   }
 
@@ -45,4 +47,47 @@ export default class GoblinGame {
       this.goblinInterval = null;
     }
   }
+
+  this.element.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("cell")) return;
+
+  if (e.target.classList.contains("cell-active")) {
+    this.isHit = true;
+    this.score += 1;
+    console.log("Score:", this.score);
+
+    e.target.classList.remove("cell-active");
+  }
+});
+}
+
+addGoblin() {
+  this.clearActive();
+  this.isHit = false;
+
+  let nextCell = Math.floor(Math.random() * this.cells.length);
+
+  while (nextCell === this.currentCell) {
+    nextCell = Math.floor(Math.random() * this.cells.length);
+  }
+
+  this.currentCell = nextCell;
+  const cell = this.cells[nextCell];
+
+  cell.classList.add("cell-active");
+
+  setTimeout(() => {
+    if (!this.isHit) {
+      this.misses += 1;
+      console.log("Misses:", this.misses);
+
+      if (this.misses >= 5) {
+        alert("Game Over");
+        this.stopGame();
+        return;
+      }
+    }
+
+    cell.classList.remove("cell-active");
+  }, 1000);
 }
