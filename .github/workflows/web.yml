@@ -1,4 +1,4 @@
-name: Dom-task
+name: Event-task
 
 on:
   push:
