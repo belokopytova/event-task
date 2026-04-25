@@ -21,7 +21,7 @@ export default class Miss {
 
   updateDisplay() {
     if (this.missElement) {
-      this.missElement.textContent = `Misses: ${this.misses}`;
+      this.missElement.textContent = `Промахи: ${this.misses}`;
     }
   }
 
