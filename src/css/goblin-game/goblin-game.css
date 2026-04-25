@@ -8,16 +8,27 @@
 }
 
 .cell {
+  width: 120px;
+  height: 120px;
   background-color: #f6f5e0;
   border: 1px solid #7d1b17;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.cell-active {
-  background-image: url("../../img/goblin.png");
-  background-repeat: no-repeat;   
-  background-position: center;       
-  background-size: contain;  
+.goblin {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.game-result {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  white-space: pre-line;
+  color: #7d1b17;
 }
